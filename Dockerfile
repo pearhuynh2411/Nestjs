@@ -5,10 +5,10 @@ FROM node:20
 WORKDIR /home/app
 
 # Copy file package.json và package-lock.json vào thư mục app
-COPY package*.json yarn.lock ./
+COPY package.json yarn.lock ./
 
 # cài thư viện trong file package.json
-RUN yarn install
+RUN yarn install --frozen-lockfile
 
 # Copy prisma từ local sang docker
 # Vừa copy và tạo folder /prisma
